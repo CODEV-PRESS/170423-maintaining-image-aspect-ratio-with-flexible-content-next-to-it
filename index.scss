@@ -1,0 +1,76 @@
+/*
+* @Author: Alex Tsoi ( https://github.com/alextsoi ) @ K2 Digital [https://k2.digital]
+* @Date:   2017-04-23 17:21:22
+* @Last Modified by:   Tsoi Yun Fung
+* @Last Modified time: 2017-04-23 17:34:17
+*/
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container-as-table{
+	display: table;
+	width: 100%;
+	height: auto;
+	&>.left-section,
+	&>.right-section{
+		// Equally divide the table-cell
+		display: table-cell;
+		width: 50%;
+		text-align: center;
+	}
+}
+
+.left-section{
+	position: relative;
+	// pseudo element for maintaining the cell-height even text content is short
+	&:before{
+		display: inline-block;
+		content: '';
+		
+		// Without width
+		width: 0;
+		height: 0;
+
+		// Using length same as the width of parent container
+		padding-top: 100%;
+
+		// Float left
+		float: left;
+	}
+	&:after{
+		// Clear float to make the cell has height
+		display: block;
+		clear: both;
+	}
+	.img{
+		// Fill the table-cell
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		// Insert the image and use cover property to fill the table cell
+		background-image: url(k2-wallpaper-with-logo.jpg);
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+}
+
+.right-section{
+	padding: 30px 15px;
+	vertical-align: middle;
+	font-size: 21px;
+	line-height: 30px;
+	p{
+		margin-bottom: 30px;
+	}
+	a{
+		color: black;
+	}
+}
